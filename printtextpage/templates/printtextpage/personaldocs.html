@@ -1,0 +1,71 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<div class="row">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 100px;">Personal Documents</p>
+    <div class="col">
+        <div class="card card-body" style="margin-left: 5px;">
+            <div id="personaldocs" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#personaldocs" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#personaldocs" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#personaldocs" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#personaldocs" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner" style=" width:100%; height: 500px !important;">
+                  <div class="carousel-item active" data-bs-interval="2500">
+                    <img src="{% static '/images/personaldocs1.png' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/personaldocs2.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/personaldocs3.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/personaldocs4.png' %}" class="d-block w-100 h-100">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#personaldocs" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#personaldocs" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="text-align: center;">
+        <p class="fade" style="text-align: left; margin: 10px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">Personal documents are first-hand accounts of social events and personal-experiences, and they generally include the writer’s feelings and attitudes. They include such things as letters, diaries, photo albums and autobiographies. Personal Documents may sometimes be referred to as Life Documents. Life documents are created by individuals and record details of that person’s experiences and social actions. They are predominantly qualitative and may offer insights into people’s subjective states. They can be historical or contemporary and can take a wide variety of forms. Ken Plummer (1982) illustrates this diversity when he says: “people keep diaries, send letters, take photos, write memo’s, tell biographies, scrawl graffiti, publish memoirs, write letters to the papers, leave suicide notes, inscribe memorials on tombstones, shoot films, paint pictures, make music and try to record their personal dreams."</p>
+        <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'print' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+      </div>
+</div>
+
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+</script>
+
+{% endblock %}

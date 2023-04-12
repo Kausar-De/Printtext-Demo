@@ -1,0 +1,342 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<style>
+    #sequence {
+        position:relative;
+        animation:animatetop 2.5s infinite
+    }
+    
+    @keyframes animatetop {
+        0% {top:-30px; opacity: 0} 
+        60% {top:0; opacity: 1}
+        100% {top:0; opacity: 1}
+    }
+</style>
+
+<div class="col" style="background-image: url('{% static '/images/BGImg.jpg' %}');">
+    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 100px; font-weight: bold; line-height: 180px; color: #ffffff; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;"><img src="{% static '/images/Logo.png' %}" height="10%" width="10%">Print Text</p>
+    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-style: italic; line-height: 20px; color: #ffffff; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Listening to Your Printing Needs!</p>
+    <p style="text-align: center; margin-top: 35px; font-family: 'Ubuntu', sans-serif; font-size: 25px; color: #ffffff; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Online Document Printing Binding Store in West Bengal, India</p>
+    <div style="display: flex; justify-content: center; height: fit-content">
+        <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; margin-bottom: 8px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">We Print </p>
+        <p  id="sequence" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; margin-left: 10px; margin-bottom: 8px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Documents</p>
+    </div>
+    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding-bottom: 12px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Print <a style="color: #ffffff;" href="{% url 'print' %}">Now!</a></p>
+</div>    
+
+<div class="col">
+    <p style="text-align: center; margin-top: 35px; font-family: 'Ubuntu', sans-serif; font-size: 25px; color: #063C78;"><img src="{% static '/images/lock.png' %}">Your Files are Secure; After Printing Files will be deleted.</p>
+    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 25px;"> <span style="color: #E5632F;">Print Documents</span> <span style="color: #B43BFF;">Quickly, Online, Securely</span> &diams; <span style="color: #007E2D;">Trusted by over 500+ customers</span></p>
+</div>
+
+<br>
+
+<p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Services Offered</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'acadproject' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/College or School Project print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'acadproject' %}">College/School Project</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'studymaterial' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Study Material Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'studymaterial' %}">Study Material Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'studyguide' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Study or Guide Material.jpeg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'studyguide' %}">Study Guides Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'homework' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Honework Worksheet Print.jpeg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'homework' %}">Homework Worksheet</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'notebook' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Note Book Print.jpeg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'notebook' %}">Notebook Printing</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'companyproject' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Company Project Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'companyproject' %}">Company Project Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'businesscard' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Business Card Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'businesscard' %}">Business Card Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'resume' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Resume Print.jpeg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'resume' %}">Resume Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'letterhead' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Letterhead Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'letterhead' %}">Letterhead Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'billinvoice' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Bill or Invoice Print.jpeg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'billinvoice' %}">Bill/Invoice Printing</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'print' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Pdf Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'print' %}">PDF Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'personaldocs' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Personal Document Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'personaldocs' %}">Personal Documents</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'certificate' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/certificate print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'certificate' %}">Certificate Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'presentation' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Presentation Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'presentation' %}">Presentation Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'ebook' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/E-Book Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'ebook' %}">E - Book Printing</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'print' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/A4 print.jpeg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'print' %}">A4 Printing</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'photoglossy' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Photo Paper or Glossy paper Print.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'photoglossy' %}">Photo/Glossy Paper</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'print' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Print With Sprial Binding.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'print' %}">Spiral Binding</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'print' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Glue & Tape Binding.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'print' %}">Glue & Tape Binding</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body" style="height: 280px;">
+                <a href="{% url 'print' %}" style="margin: auto; object-fit: contain;"><img src="{% static '/images/Staple Binding.jpg' %}" width="95%" height="95%"></a>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;"><a href="{% url 'print' %}">Staple Binding</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="col" style="text-align: center;">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Why Choose Us?</p>
+    <div class="fade">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                        <img src="{% static '/images/ecommerce.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                    </div>
+                    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Online - No Running to Vendors</p>
+                </div>
+                <div class="col">
+                    <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                        <img src="{% static '/images/lowcost.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                    </div>
+                    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Low Cost</p>
+                </div>
+                <div class="col">
+                    <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                        <img src="{% static '/images/delivery.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                    </div>
+                    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Delivery/Pick-up Option</p>
+                </div>
+                <div class="col">
+                    <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                        <img src="{% static '/images/fastdel.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                    </div>
+                    <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Fastest Delivery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Payment Options</p>
+<div class="fade">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                    <img src="{% static '/images/internet-banking-vector-icon.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Net Banking</p>
+            </div>
+            <div class="col">
+                <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                    <img src="{% static '/images/Paytm-Logo.wine.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">PayTM</p>
+            </div>
+            <div class="col">
+                <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                    <img src="{% static '/images/bhim-upi-logo.jpg' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">BHIM UPI</p>
+            </div>
+            <div class="col">
+                <div class="card card-body" style="height: 280px; border-radius: 100%;">
+                    <img src="{% static '/images/credit-card.webp' %}" width="70%" height="70%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Debit/Credit Card</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Our Delivery Partners</p>
+<div class="fade">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card card-body" style="height: 280px;">
+                    <img src="{% static '/images/dtdclogo.jpg' %}" width="80%" height="80%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">DTDC</p>
+            </div>
+            <div class="col">
+                <div class="card card-body" style="height: 280px;">
+                    <img src="{% static '/images/bluedartlogo.jpg' %}" width="80%" height="80%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Blue Dart</p>
+            </div>
+            <div class="col">
+                <div class="card card-body" style="height: 280px;">
+                    <img src="{% static '/images/Delhivery_Logo_(2019).jpg' %}" width="80%" height="80%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">Delhivery</p>
+            </div>
+            <div class="col">
+                <div class="card card-body" style="height: 280px">
+                    <img src="{% static '/images/skykinglogo.jpg' %}" width="80%" height="80%" style="margin: auto; object-fit: contain;">
+                </div>
+                <p style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; margin-bottom: 0;">SkyKing</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="fade">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-grid gap-1 col-4 mx-auto">
+                <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'print' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+            </div>
+            <div class="d-grid gap-1 col-4 mx-auto">
+                <button class="btn btn-lg btn-primary" type="button"><a class="nav-link" href="{% url 'aboutus' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">About Us</a></button>  
+            </div>
+        </div>
+    </div>
+</div>
+    
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+var words = ['Letterheads', 'College/School Projects', 'Study Materials', 'Company Projects', 'Business Cards', 'Presentations', 'Personal Documents', 'Certificates', 'Documents'];
+
+textSequence(0);
+function textSequence(i) {
+
+    if (words.length > i) {
+        setTimeout(function() {
+            document.getElementById("sequence").innerHTML = words[i];
+            textSequence(++i);
+        }, 2500); // 1 second (in milliseconds)
+
+    } else if (words.length == i) { // Loop
+        textSequence(0);
+    }
+
+}
+</script>
+
+{% endblock %}

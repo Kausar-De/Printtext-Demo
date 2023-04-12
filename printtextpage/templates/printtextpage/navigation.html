@@ -1,0 +1,27 @@
+{% load static %}
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #ffffff;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-expand" style= "background: #1b1b1a;" >
+    <img src="{% static '/images/Logo.png' %} " width="5%" height="5%" style="margin-left: 15px; margin-right: 15px;">  
+    <a class="navbar-brand" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; text-align: center;" href="{% url 'homepage' %}">Print Text</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 20px; text-align: center; color: #ffffff;">
+            <a class="nav-link" href="{% url 'print' %}">Print Now!</a>
+          </li>
+        </ul>
+    </div>
+</nav>
+
+<!--width="187px" height="108px" 
+rgb(6,38,81); background: linear-gradient(119deg, rgba(6,38,81,1) 17%, rgba(84,130,53,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%-->

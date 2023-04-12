@@ -1,0 +1,178 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% include 'printtextpage/navigation.html' %}
+
+<br>
+
+<div class="col">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 110px;">Print Now!</p>
+</div>
+
+<br>
+
+<div class="col" style="text-align: center;">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Print Artwork Tips</p>
+    <p class="fade" style="text-align: center; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">To make ordering a print as easy as possible we accept 9 different file types:</p>
+    <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+      <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">PDF, DOC, DOCX, PPT, PPTX, JPEG, PNG, XLXS, CSV</p></li>
+      <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">We Recommend: Upload a PDF for perfect print!</p></li>
+    </ul>
+</div>
+
+<br>
+
+<div class="col" style="text-align: center;">
+  <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Paper Information Required</p>
+  <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;"> <span style="font-weight: bold;">Paper Size: </span>A3 [297 x 420 millimeters or 11.69 x 16.54 inches], A4 [210 297 millimeters or 8.27 11.69 inches], B5 [176 x 250 millimeters or 6.9 x 9.8 inches], A5 [148 x 210 millimeters or 5.83 x 8.27 inches]</p>
+  <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;"> <span style="font-weight: bold;">Printing Sides: </span>Duplex Printing [Back 2 Back] or Single Side Printing</p>
+  <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;"> <span style="font-weight: bold;">Paper Type: </span>[75GSM: Business Forms, Flyers, Books, Mailers, Reports], [100GSM/130GSM: Premium Books, Mailers, Resume, Letterhead], [170GSM: Booklet, Magazines, etc], [170GSM/250GSM/300GSM: Poster, Marketing Materials], [250GSM/300GSM: Business Card, Certificates, Photo, Premium Poster, etc]</p>
+  <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;"> <span style="font-weight: bold;">Binding Type: </span>Binding type of the Document</p>
+</div>
+
+<br>
+
+<div class="col" style="text-align: center;">
+  <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Rate Calculator (INR)</p>
+  <div class="fade">
+    <div class="container-fluid" style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">
+      <div class="row">
+        <div class="col">
+          <table class="table align-middle">
+            <tbody>
+              <tr>
+                <th scope="row">Pages in Document</th>
+                <td><input type="number" class="form-control" id="pages" placeholder="1"></td>
+              </tr>
+              <tr>
+                <th scope="row">Copies of Document</th>
+                <td><input type="number" class="form-control" id="copies" placeholder="1"></td>
+              </tr>
+              <tr>
+                <th scope="row">Print Option</th>
+                <td>
+                  <select class="form-select" id="print" aria-label="Default select example">
+                    <option selected>Select an Option</option>
+                    <option value="5">Full Colour</option>
+                    <option value="2">Black & White</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <table class="table align-middle">
+            <tbody>
+              <tr>
+                <th scope="row">Page Type</th>
+                <td>
+                  <select class="form-select" id="page" aria-label="Default select example">
+                    <option selected>Select an Option</option>
+                    <option value="1">Normal Paper (70GSM)</option>
+                    <option value="2">Normal Paper (75GSM)</option>
+                    <option value="3.5">Bond Paper (80GSM)</option>
+                    <option value="18">Glossy Paper (180GSM)</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Cover Option</th>
+                <td>
+                  <select class="form-select" id="cover" aria-label="Default select example">
+                    <option selected>Select an Option</option>
+                    <option value="0">No Cover</option>
+                    <option value="4">Thick Colored Cover</option>
+                    <option value="10">Cover with Design</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Binding Option</th>
+                <td>
+                  <select class="form-select" id="binding" aria-label="Default select example">
+                    <option selected>Select an Option</option>
+                    <option value="0">No Binding</option>
+                    <option value="0">Corner Staple</option>
+                    <option value="0">Full Staple</option>
+                    <option value="60">Spiral Bind</option>                    
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-success" type="button" onclick="calculateRate()">Calculate</button>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 21px; font-weight: bold;">Expected Price (Minimum Print Pages - 150 Else Delivery Rate Will Change): </p>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="quote" placeholder="Price Here">
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<br>
+
+<div class="col" style="text-align: center;">
+  <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;" id="orderwithus">Order With Us</p>
+  <div class="row">
+    <div class="d-grid gap-1 col-4 mx-auto">
+      <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'orderform' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+        <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">We Will Send you the Payment Link</p></li>
+        <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">Make Payment and We will process your Order</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="col" style="text-align: center;">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold;">Corporate Pricing</p>
+    <p class="fade" style="text-align: center; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">We Accept Corporate Bulk orders. Just Contact us at <a href="mailto:print_printtext@yahoo.com">print_printtext@yahoo.com</a></p>
+</div>
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+function calculateRate(){  
+    var cost = (document.getElementById("pages").value * document.getElementById("print").value * parseFloat(document.getElementById("page").value) + parseInt(document.getElementById("cover").value) + parseInt(document.getElementById("binding").value)) * document.getElementById("copies").value;
+    document.getElementById("quote").value = cost
+  }
+</script>
+
+{% endblock %}

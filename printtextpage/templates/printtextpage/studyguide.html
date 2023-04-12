@@ -1,0 +1,83 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<div class="row">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 100px;">Study Guide</p>
+    <div class="col">
+        <div class="card card-body" style="margin-left: 5px;">
+            <div id="studyguide" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#studyguide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#studyguide" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#studyguide" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner" style=" width:100%; height: 500px !important;">
+                  <div class="carousel-item active" data-bs-interval="2500">
+                    <img src="{% static '/images/studymaterial1.jpeg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/studymaterial2.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/studymaterial3.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#studyguide" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#studyguide" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="text-align: center;">
+        <p class="fade" style="text-align: left; margin: 10px; font-family: 'Ubuntu', sans-serif; font-size: 18px;">A study guide is a useful document that is generally used by students of all ages. Learning so many subjects in school can be overwhelming for a student, but with a study guide, students can study better by highlighting the most important topics and concepts. As not to be overwhelmed with the number of lessons and topics to be learned in school, a study guide offers relief to those who need to cover what is most important. Each student has their own strategic approach and resources when it comes to studying which is what a study guide is meant to be used for. Students can get creative when creating their own study guides but if it’s too much trouble a lot of study guide textbooks are available for purchase.</p>
+        <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Nurse Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Disease Process Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Science Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Pathophysiology Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Bible Study Guide</p></li>
+        </ul>
+        <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Exam Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Drug Classes Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Astrology Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Digital Study Guide</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Generic Study Guide</p></li>
+        </ul>
+        <div class="d-grid gap-1 col-4 mx-auto">
+          <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'print' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)f
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+</script>
+
+{% endblock %}

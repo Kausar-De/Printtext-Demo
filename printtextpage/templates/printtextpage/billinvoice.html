@@ -1,0 +1,92 @@
+{% extends 'printtextpage/base.html' %}slide
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<div class="row">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 100px;">Bill/Invoice Printing</p>
+    <div class="col">
+        <div class="card card-body" style="margin-left: 5px;">
+            <div id="billinvoice" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#billinvoice" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#billinvoice" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#billinvoice" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#billinvoice" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#billinvoice" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner" style=" width:100%; height: 500px !important;">
+                  <div class="carousel-item active" data-bs-interval="2500">
+                    <img src="{% static '/images/billinvoice1.png' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/billinvoice2.png' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/billinvoice3.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/billinvoice4.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/billinvoice5.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#billinvoice" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#billinvoice" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="text-align: center;">
+        <p class="fade" style="text-align: left; margin: 10px; font-family: 'Ubuntu', sans-serif; font-size: 18px;">An invoice is a business record used to describe and itemize products sold or services performed. It can be on paper or in a digital document such as a PDF. In addition to a description of the products or services provided, an invoice will state the amount due, the due date, and list the most recent previous payment.</p>
+        <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Proforma invoice</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Sales invoice</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Overdue invoice</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Consolidated invoice</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Retainer invoice</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Interim invoices</p></li>
+        </ul>
+        <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Timesheet invoice</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Credit memo</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Debit memo</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Digital invoices</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">E-invoices</p></li>
+        </ul>
+        <div class="d-grid gap-1 col-4 mx-auto">
+          <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'print' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)f
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+</script>
+
+{% endblock %}

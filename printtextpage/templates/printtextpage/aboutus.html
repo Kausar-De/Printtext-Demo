@@ -1,0 +1,38 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<br>
+
+<div class="col">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 110px;">About Us</p>
+    <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">Print Text is an online document printing store based in India. We're an online printing convenience store dedicated to YOU! Our goal is to provide you with high-quality printing services without wasting your time or energy. Print Text is a one-of-a-kind website created with your daily printing needs in mind. Print Text promises to give one-of-a-kind, cost-effective, and simple printing solutions.</p>
+    <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">We cater to the printing requirements of everybody with a printing project! You simply upload your document file, pay for it, and you're done! The prints will be delivered right to your home. Your order will be placed in minutes thanks to the straightforward and easy-to-use process!</p>
+    <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">"docx, doc, ppt, pptx, jpg, png, pdf, xlxs, csv" formats are supported. We intend to take the entire basket as quickly as possible!!! So let's leave the dull stuff here and get printing!!</p>
+    <p class="fade" style="text-align: left; margin: 35px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">Let's Chill….</p>
+</div>
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+</script>
+
+{% endblock %}

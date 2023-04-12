@@ -1,0 +1,85 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<div class="row">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 100px;">Business Card Printing</p>
+    <div class="col">
+        <div class="card card-body" style="margin-left: 5px;">
+            <div id="businesscard" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#businesscard" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#businesscard" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#businesscard" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#businesscard" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner" style=" width:100%; height: 500px !important;">
+                  <div class="carousel-item active" data-bs-interval="2500">
+                    <img src="{% static '/images/businesscard1.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/businesscard2.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/businesscard3.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/businesscard4.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#businesscard" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#businesscard" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="text-align: center;">
+        <p class="fade" style="text-align: left; margin: 10px; font-family: 'Ubuntu', sans-serif; font-size: 18px;">Knowing what business card details to add and what to leave out helps create a card that's both eye-catching and well-balanced. When designed correctly, your business card reminds people of the first time you met and encourages those who are interested in your products or services to get back in touch or visit your website for more information. A business card is a tried-and-true marketing tool, whether you're starting a side hustle or expanding your brick and mortar business. It's often the first interaction a customer has with your brand, so beyond reflecting your business in a positive way, it should contain pertinent information. That's why the first question that comes to mind is “what goes on a business card” when considering creating one. Here, we'll cover everything you need to know about what to put on a business card.</p>
+        <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Logo</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Company name</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Tagline</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Your name & title</p></li>
+        </ul>
+        <ul class="fade" style="margin: auto;  display: inline-block; text-align: left;">
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Contact details</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Your address -online or physical</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">Social media handles</p></li>
+            <li><p style="font-family: 'Ubuntu', sans-serif; font-size: 18px;">A QR code</p></li>
+        </ul>
+        <div class="d-grid gap-1 col-4 mx-auto">
+          <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'print' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+</script>
+
+{% endblock %}

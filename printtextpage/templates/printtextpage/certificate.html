@@ -1,0 +1,75 @@
+{% extends 'printtextpage/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'printtextpage/navigation.html' %}
+
+<div class="row">
+    <p class="fade" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 65px; font-weight: bold; line-height: 100px;">Certificate Printing</p>
+    <div class="col">
+        <div class="card card-body" style="margin-left: 5px;">
+            <div id="certificate" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#certificate" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#certificate" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#certificate" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#certificate" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#certificate" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner" style=" width:100%; height: 500px !important;">
+                  <div class="carousel-item active" data-bs-interval="2500">
+                    <img src="{% static '/images/certificate1.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/certificate2.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/certificate3.jpeg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/certificate4.jpg' %}" class="d-block w-100 h-100">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2500">
+                    <img src="{% static '/images/certificate5.png' %}" class="d-block w-100 h-100">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#certificate" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#certificate" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="text-align: center;">
+        <p class="fade" style="text-align: left; margin: 10px; font-family: 'Ubuntu', sans-serif; font-size: 20px;">A certificate is an official document that you receive when you have completed a course of study or training. The qualification that you receive is sometimes also called a certificate. A certificate is like a passport: it identifies the holder and provides other important information. Certificates are issued by a trusted third party called a Certification Authority (CA). In their simplest form, a certificate contains a public key and a name. The certificate may also contain an expiration date, the name of the certifying authority that issued the certificate, a serial number and optional additional information.</p>
+        <button class="btn btn-lg btn-success" type="button"><a class="nav-link" href="{% url 'print' %}" style="text-align: center; font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: bold; color: #ffffff; padding: 0%;">Print Now!</a></button>
+      </div>
+</div>
+
+
+<br>
+
+<script>
+    $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+
+</script>
+
+{% endblock %}
